@@ -12,15 +12,15 @@
     <a asp-page="Create">Create New</a>
 </p>
 
-<form class="form-inline">
+<form class="form-inline" id="formBusqueda">
     <div class="form-group mb-2">
-        <select class="form-control" asp-for="MovieGenre" asp-items="Model.Genres">
+        <select class="form-control" asp-for="MovieGenre"  asp-items="Model.Genres" onselect="enviarFormulario()" onchange="enviarFormulario()"  >
             <option value="">All</option>
         </select>
     </div>
     <div class="form-group mx-sm-3 mb-2">
         <label for="txtFiltroTitulo">Titulo</label>
-        <input type="text" asp-for="SearchString" class="form-control ml-2" id="txtFiltroTitulo" />
+        <input type="text" asp-for="SearchString" class="form-control ml-2" id="txtFiltroTitulo" asp-action="" />
     </div>
 
     <button type="submit" class="btn btn-primary mb-2">Buscar</button>
@@ -69,3 +69,11 @@
         }
     </tbody>
 </table>
+
+<script type="text/javascript">
+
+    function enviarFormulario() {
+        document.forms["formBusqueda"].submit();
+    }
+
+</script>
