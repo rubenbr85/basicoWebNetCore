@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29709.97
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicoWebRazorCore", "BasicoWebRazorCore\BasicoWebRazorCore.csproj", "{2D922544-03E7-43CB-9848-FC1FF842662C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D922544-03E7-43CB-9848-FC1FF842662C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D922544-03E7-43CB-9848-FC1FF842662C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D922544-03E7-43CB-9848-FC1FF842662C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D922544-03E7-43CB-9848-FC1FF842662C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3E22C139-D7B1-4398-861F-1D8842E4CAF3}
+	EndGlobalSection
+EndGlobal
