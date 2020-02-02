@@ -19,9 +19,10 @@ namespace BasicoWebRazorCore.Models
         [Display(Name = "Release Date")]
         public DateTime ReleaseDate { get; set; }
         
-        [RegularExpression(@"^[A-Z]+[a-zA-Z""'\s-]*$")]
         [Required]
-        public string Genre { get; set; }
+        public int GenreID { get; set; }
+
+        public Genre Genre { get; set; }
 
         [Range(1, 100)]
         [DataType(DataType.Currency)]

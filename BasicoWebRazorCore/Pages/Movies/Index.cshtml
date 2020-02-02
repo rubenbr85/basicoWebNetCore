@@ -14,7 +14,7 @@
 
 <form class="form-inline" id="formBusqueda">
     <div class="form-group mb-2">
-        <select class="form-control" asp-for="MovieGenre"  asp-items="Model.Genres" onselect="enviarFormulario()" onchange="enviarFormulario()"  >
+        <select class="form-control" asp-for="MovieGenre"  asp-items="Model.Genres"  onchange="enviarFormulario()"  >
             <option value="">All</option>
         </select>
     </div>
@@ -58,7 +58,7 @@
                 @Html.DisplayFor(modelItem => item.ReleaseDate)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Genre)
+                @Html.DisplayFor(modelItem => item.Genre.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Price)

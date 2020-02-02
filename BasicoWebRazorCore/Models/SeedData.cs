@@ -20,20 +20,14 @@ namespace BasicoWebRazorCore.Models
                     return;   // DB has been seeded
                 }
 
+                Genre genreTerror = new Genre { Name = "Terror" };
+                Genre genreAction = new Genre { Name = "Action" };
+                Genre genreLove = new Genre { Name = "Love" };
 
                 context.Genre.AddRange(
-                    new Genre
-                    {
-                        Name = "Terror"
-                    },
-                    new Genre
-                    {
-                        Name = "Action"
-                    },
-                    new Genre
-                    {
-                        Name = "Love"
-                    }
+                    genreTerror,
+                    genreAction,
+                    genreLove
                  );
                     
                context.Movie.AddRange(
@@ -41,7 +35,7 @@ namespace BasicoWebRazorCore.Models
                     {
                         Title = "When Harry Met Sally",
                         ReleaseDate = DateTime.Parse("1989-2-12"),
-                        Genre = "Romantic Comedy",
+                        Genre = genreTerror,
                         Price = 7.99M,
                         Rating="PG-3"
                     },
@@ -50,7 +44,7 @@ namespace BasicoWebRazorCore.Models
                     {
                         Title = "Ghostbusters ",
                         ReleaseDate = DateTime.Parse("1984-3-13"),
-                        Genre = "Comedy",
+                        Genre = genreAction,
                         Price = 8.99M,
                         Rating="PG-13"
                     },
@@ -59,7 +53,7 @@ namespace BasicoWebRazorCore.Models
                     {
                         Title = "Ghostbusters 2",
                         ReleaseDate = DateTime.Parse("1986-2-23"),
-                        Genre = "Comedy",
+                        Genre = genreAction,
                         Price = 9.99M,
                         Rating="PG-13"
                     },
@@ -68,7 +62,7 @@ namespace BasicoWebRazorCore.Models
                     {
                         Title = "Rio Bravo",
                         ReleaseDate = DateTime.Parse("1959-4-15"),
-                        Genre = "Western",
+                        Genre = genreLove,
                         Price = 3.99M,
                         Rating="PG-18"
                     }
