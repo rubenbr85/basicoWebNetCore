@@ -20,7 +20,23 @@ namespace BasicoWebRazorCore.Models
                     return;   // DB has been seeded
                 }
 
-                context.Movie.AddRange(
+
+                context.Genre.AddRange(
+                    new Genre
+                    {
+                        Name = "Terror"
+                    },
+                    new Genre
+                    {
+                        Name = "Action"
+                    },
+                    new Genre
+                    {
+                        Name = "Love"
+                    }
+                 );
+                    
+               context.Movie.AddRange(
                     new Movie
                     {
                         Title = "When Harry Met Sally",
@@ -57,6 +73,8 @@ namespace BasicoWebRazorCore.Models
                         Rating="PG-18"
                     }
                 );
+
+
                 context.SaveChanges();
             }
         }
