@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BasicoWebRazorCore.Data;
 using BasicoWebRazorCore.Models;
 
-namespace BasicoWebRazorCore
+namespace BasicoWebRazorCore.Genres
 {
     public class DeleteModel : PageModel
     {
@@ -20,7 +20,7 @@ namespace BasicoWebRazorCore
         }
 
         [BindProperty]
-        public Movie Movie { get; set; }
+        public Genre Genre { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -29,9 +29,9 @@ namespace BasicoWebRazorCore
                 return NotFound();
             }
 
-            Movie = await _context.Movie.Include(g => g.Genre).FirstOrDefaultAsync(m => m.ID == id);
+            Genre = await _context.Genre.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Movie == null)
+            if (Genre == null)
             {
                 return NotFound();
             }
@@ -45,11 +45,11 @@ namespace BasicoWebRazorCore
                 return NotFound();
             }
 
-            Movie = await _context.Movie.FindAsync(id);
+            Genre = await _context.Genre.FindAsync(id);
 
-            if (Movie != null)
+            if (Genre != null)
             {
-                _context.Movie.Remove(Movie);
+                _context.Genre.Remove(Genre);
                 await _context.SaveChangesAsync();
             }
 

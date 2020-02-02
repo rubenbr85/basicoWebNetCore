@@ -9,9 +9,9 @@ using Microsoft.EntityFrameworkCore;
 using BasicoWebRazorCore.Data;
 using BasicoWebRazorCore.Models;
 
-namespace BasicoWebRazorCore
+namespace BasicoWebRazorCore.Genres
 {
-    public class EditModel : GenreNamePageModel
+    public class EditModel : PageModel
     {
         private readonly BasicoWebRazorCore.Data.BasicoWebRazorCoreContext _context;
 
@@ -21,7 +21,7 @@ namespace BasicoWebRazorCore
         }
 
         [BindProperty]
-        public Movie Movie { get; set; }
+        public Genre Genre { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -30,14 +30,12 @@ namespace BasicoWebRazorCore
                 return NotFound();
             }
 
-            Movie = await _context.Movie.FirstOrDefaultAsync(m => m.ID == id);
+            Genre = await _context.Genre.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Movie == null)
+            if (Genre == null)
             {
                 return NotFound();
             }
-            GenreDropDownList(_context,Movie.GenreID);
-
             return Page();
         }
 
@@ -50,7 +48,7 @@ namespace BasicoWebRazorCore
                 return Page();
             }
 
-            _context.Attach(Movie).State = EntityState.Modified;
+            _context.Attach(Genre).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +56,7 @@ namespace BasicoWebRazorCore
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!MovieExists(Movie.ID))
+                if (!GenreExists(Genre.ID))
                 {
                     return NotFound();
                 }
@@ -71,9 +69,9 @@ namespace BasicoWebRazorCore
             return RedirectToPage("./Index");
         }
 
-        private bool MovieExists(int id)
+        private bool GenreExists(int id)
         {
-            return _context.Movie.Any(e => e.ID == id);
+            return _context.Genre.Any(e => e.ID == id);
         }
     }
 }

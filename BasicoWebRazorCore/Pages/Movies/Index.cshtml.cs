@@ -31,9 +31,9 @@ namespace BasicoWebRazorCore
 
         public async Task OnGetAsync()
         {
-            IQueryable<string> genreQuery = from m in _context.Movie
-                                            orderby m.Genre
-                                            select m.Genre;
+            IQueryable<Genre> genreQuery = from g in _context.Genre
+                                            orderby g.Name
+                                            select g;
 
             var movies = from m in _context.Movie
                          select m;
@@ -43,11 +43,12 @@ namespace BasicoWebRazorCore
                 movies = movies.Where(s => s.Title.Contains(SearchString));
             }
 
-            if (!string.IsNullOrEmpty(MovieGenre))
+            int idGenre;
+            if (!string.IsNullOrEmpty(MovieGenre) && int.TryParse(MovieGenre,out idGenre))
             {
-                movies = movies.Where(x => x.Genre == MovieGenre);
+                movies = movies.Where(x => x.GenreID == idGenre);
             }
-            Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
+            Genres = new SelectList(await genreQuery.ToListAsync(),"ID","Name");
             Movie = await movies.ToListAsync();
         }
     }

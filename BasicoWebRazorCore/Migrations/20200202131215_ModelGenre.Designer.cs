@@ -4,14 +4,16 @@ using BasicoWebRazorCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BasicoWebRazorCore.Migrations
 {
     [DbContext(typeof(BasicoWebRazorCoreContext))]
-    partial class BasicoWebRazorCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20200202131215_ModelGenre")]
+    partial class ModelGenre
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,7 +45,11 @@ namespace BasicoWebRazorCore.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("GenreID")
+                    b.Property<string>("Genre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("GenreID")
                         .HasColumnType("int");
 
                     b.Property<decimal>("Price")
@@ -71,11 +77,9 @@ namespace BasicoWebRazorCore.Migrations
 
             modelBuilder.Entity("BasicoWebRazorCore.Models.Movie", b =>
                 {
-                    b.HasOne("BasicoWebRazorCore.Models.Genre", "Genre")
+                    b.HasOne("BasicoWebRazorCore.Models.Genre", null)
                         .WithMany("Movies")
-                        .HasForeignKey("GenreID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GenreID");
                 });
 #pragma warning restore 612, 618
         }

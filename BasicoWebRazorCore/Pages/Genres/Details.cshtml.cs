@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using BasicoWebRazorCore.Data;
 using BasicoWebRazorCore.Models;
 
-namespace BasicoWebRazorCore
+namespace BasicoWebRazorCore.Genres
 {
     public class DetailsModel : PageModel
     {
@@ -19,7 +19,7 @@ namespace BasicoWebRazorCore
             _context = context;
         }
 
-        public Movie Movie { get; set; }
+        public Genre Genre { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,9 +28,9 @@ namespace BasicoWebRazorCore
                 return NotFound();
             }
 
-            Movie = await _context.Movie.Include(g =>g.Genre).FirstOrDefaultAsync(m => m.ID == id);
+            Genre = await _context.Genre.FirstOrDefaultAsync(m => m.ID == id);
 
-            if (Movie == null)
+            if (Genre == null)
             {
                 return NotFound();
             }

@@ -8,9 +8,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using BasicoWebRazorCore.Data;
 using BasicoWebRazorCore.Models;
 
-namespace BasicoWebRazorCore
+namespace BasicoWebRazorCore.Genres
 {
-    public class CreateModel : GenreNamePageModel
+    public class CreateModel : PageModel
     {
         private readonly BasicoWebRazorCore.Data.BasicoWebRazorCoreContext _context;
 
@@ -21,13 +21,11 @@ namespace BasicoWebRazorCore
 
         public IActionResult OnGet()
         {
-            GenreDropDownList(_context);
-
             return Page();
         }
 
         [BindProperty]
-        public Movie Movie { get; set; }
+        public Genre Genre { get; set; }
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
@@ -38,7 +36,7 @@ namespace BasicoWebRazorCore
                 return Page();
             }
 
-            _context.Movie.Add(Movie);
+            _context.Genre.Add(Genre);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

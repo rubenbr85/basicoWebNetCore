@@ -15,5 +15,7 @@ namespace BasicoWebRazorCore.Data
         }
 
         public DbSet<BasicoWebRazorCore.Models.Movie> Movie { get; set; }
+
+        public DbSet<BasicoWebRazorCore.Models.Genre> Genre { get; set; }
     }
 }
