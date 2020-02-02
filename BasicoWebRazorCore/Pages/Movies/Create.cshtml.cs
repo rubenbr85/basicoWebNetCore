@@ -10,7 +10,7 @@ using BasicoWebRazorCore.Models;
 
 namespace BasicoWebRazorCore
 {
-    public class CreateModel : PageModel
+    public class CreateModel : GenreNamePageModel
     {
         private readonly BasicoWebRazorCore.Data.BasicoWebRazorCoreContext _context;
 
@@ -21,6 +21,8 @@ namespace BasicoWebRazorCore
 
         public IActionResult OnGet()
         {
+            GenreDropDownList(_context);
+
             return Page();
         }
 

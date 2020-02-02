@@ -11,7 +11,7 @@ using BasicoWebRazorCore.Models;
 
 namespace BasicoWebRazorCore
 {
-    public class EditModel : PageModel
+    public class EditModel : GenreNamePageModel
     {
         private readonly BasicoWebRazorCore.Data.BasicoWebRazorCoreContext _context;
 
@@ -36,6 +36,8 @@ namespace BasicoWebRazorCore
             {
                 return NotFound();
             }
+            GenreDropDownList(_context,Movie.GenreID);
+
             return Page();
         }
 
