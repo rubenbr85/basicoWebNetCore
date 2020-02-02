@@ -4,14 +4,16 @@ using BasicoWebRazorCore.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BasicoWebRazorCore.Migrations
 {
     [DbContext(typeof(BasicoWebRazorCoreContext))]
-    partial class BasicoWebRazorCoreContextModelSnapshot : ModelSnapshot
+    [Migration("20200202115501_New_DataAnnotations")]
+    partial class New_DataAnnotations
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
